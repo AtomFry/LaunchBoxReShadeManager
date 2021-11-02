@@ -48,5 +48,5 @@ Some characters (like /:?*?"<>|) are invalid in file and folder names. If these 
 ..\LaunchBox\LaunchBoxReShadeManager\ReShade versions for games\Nintendo Wii\Castlevania_ The Adventure ReBirth
 
 # Special thanks
-nohero
+nohero  
 ReShade developers (to be identified)
