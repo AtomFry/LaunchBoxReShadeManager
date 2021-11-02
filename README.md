@@ -44,7 +44,7 @@ Example path for adding a bezel override for the Nintendo Gamecube game titled A
 ..\LaunchBox\LaunchBoxReShadeManager\ReShade versions for games\Nintendo Gamecube\Alien Hominid\reshade-shaders\Textures\Bezel.png  
 
 # Notes on safe names
-Some characters (like /:?*?"<>|) are invalid in file and folder names. If these files exist in the emulator, platform, or game name, those characters must be replaced by an underscore. For example, to create a game specific override for the game "Castlevania: The Adventure ReBirth", create a folder in the following location and add your ReShade files:
+Some characters (like /:?*?"<>|) are invalid in file and folder names. If these files exist in the emulator, platform, or game name, those characters must be replaced by an underscore. For example, to create a game specific override for the game "Castlevania: The Adventure ReBirth", create a folder in the following location and add your ReShade files:  
 ..\LaunchBox\LaunchBoxReShadeManager\ReShade versions for games\Nintendo Wii\Castlevania_ The Adventure ReBirth
 
 # Special thanks
