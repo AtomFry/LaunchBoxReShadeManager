@@ -14,11 +14,6 @@ namespace LaunchBoxReShadeManager.Helpers
                 return;
             }
 
-            if (!Directory.Exists(destDirName))
-            {
-                return;
-            }
-
             // Get the subdirectories for the specified directory.
             DirectoryInfo dir = new DirectoryInfo(sourceDirName);
 
