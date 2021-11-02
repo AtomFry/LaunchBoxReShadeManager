@@ -12,7 +12,7 @@ These files are included in the plug-in ZIP file.  They include both the ReShade
   
 ..\LaunchBox\LaunchBoxReShadeManager\ReShade versions for emulators\\{EMULATOR}  
   
-Where {EMULATOR} is the safe name of the emulator. These emulator names must match the name of the emulator as it is setup in your LaunchBox instance. You can change the folder names in this path to match the naming of your emulator if you have an emulator named differently.  
+Where {EMULATOR} is the safe name (more on "safe names" below) of the emulator. These emulator names must match the name of the emulator as it is setup in your LaunchBox instance. You can change the folder names in this path to match the naming of your emulator if you have an emulator named differently.  
   
 You can replace the default bezel for an emulator by replacing the Bezel.png file at the following path:  
 ..\LaunchBox\LaunchBoxReShadeManager\ReShade versions for emulators\\{EMULATOR}\reshade-shaders\Textures\Bezel.png
@@ -21,7 +21,7 @@ You can replace the default bezel for an emulator by replacing the Bezel.png fil
 You can override ReShade settings and bezels at the platform level. The system will copy any files in a folder with the name of a platform to the emulator directory if it exists at the following location:
 ..\LaunchBox\LaunchBoxReShadeManager\ReShade versions for platforms\\{PLATFORM}
 
-Where {PLATFORM} is the safe name of the platform. These platform names must match the name of the platform as it is setup in your LaunchBox instance. You can set the folder names in this path to match the naming of your platform if you have a platform named differently.
+Where {PLATFORM} is the safe name (more on "safe names" below) of the platform. These platform names must match the name of the platform as it is setup in your LaunchBox instance. You can set the folder names in this path to match the naming of your platform if you have a platform named differently.
 
 You can replace the bezel for a platform by replacing the Bezel.png file at the following path: 
 ..\LaunchBox\LaunchBoxReShadeManager\ReShade versions for platforms\\{PLATFORM}\reshade-shaders\Textures\Bezel.png  
@@ -34,8 +34,8 @@ You can override ReShade settings and bezels at the game level.  The system will
 
 ..\LaunchBox\LaunchBoxReShadeManager\ReShade versions for games\\{PLATFORM}\\{GAME}  
   
-Where {PLATFORM} is the safe name of the platform  
-Where {GAME} is the safe name of the game  
+Where {PLATFORM} is the safe name (more on "safe names" below) of the platform  
+Where {GAME} is the safe name (more on "safe names" below) of the game  
 
 You can replace the bezel for a game by replacing the Bezel.png file at the following path:  
 ..\LaunchBox\LaunchBoxReShadeManager\ReShade versions for games\\{PLATFORM}\\{GAME}\\reshade-shaders\Textures\Bezel.png  
