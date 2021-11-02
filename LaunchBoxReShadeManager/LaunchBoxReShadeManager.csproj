@@ -6,8 +6,40 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Dependencies\" />
-    <Folder Include="EmbeddedResources\" />
+    <None Remove="EmbeddedResources\ReShadeIcon.png" />
   </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="EmbeddedResources\ReShadeIcon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Dependencies\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Unbroken.LaunchBox.Plugins">
+      <HintPath>Dependencies\Unbroken.LaunchBox.Plugins.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy &quot;$(TargetDir)\$(TargetFileName)&quot; &quot;C:\Users\Adam\Documents\LaunchBox\Plugins&quot; /K /D /H /Y" />
+  </Target>
 
 </Project>
