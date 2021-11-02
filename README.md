@@ -3,9 +3,9 @@ LaunchBoxReShadeManager is a plugin for LaunchBox and BigBox that copies ReShade
 
 # Installation
 Download LaunchBoxReShadeManager.zip  
-Extract the to a local zip folder  
+Extract the zip file to a local folder  
 Copy the LaunchBoxReShadeManager and Plugins folders to the root of your LaunchBox directory.  
-IMPORTANT - TheLaunchBoxReShadeManager folder must reside in the root of the LaunchBox directory  
+IMPORTANT - TheLaunchBoxReShadeManager folder must reside in the root of the LaunchBox directory. The LaunchBoxReShadeManager.dll file must be present in your LaunchBox\Plugins directory. 
 
 # Emulator settings
 These files are included in the plug-in ZIP file.  They include both the ReShade configuration and the default bezel for the emulator. This allows for a default configuration at the emulator level. The system will copy any files in a folder with the name of an emulator to the emulator directory if it exists at the following location:  
