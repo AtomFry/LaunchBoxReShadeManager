@@ -17,15 +17,7 @@ namespace LaunchBoxReShadeManager.Helpers
             {
                 if (string.IsNullOrWhiteSpace(applicationPath))
                 {
-                    // original (pre-dotnet-core) application root folder
-                    applicationPath = Path.GetDirectoryName(System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName);
-
-                    // check if we are in the core folder for 11.3 and later and get the parent folder 
-                    string folder = new DirectoryInfo(applicationPath).Name;
-                    if (folder.Equals("core", StringComparison.InvariantCultureIgnoreCase))
-                    {
-                        applicationPath = Directory.GetParent(applicationPath).FullName;
-                    }
+                    applicationPath = Directory.GetCurrentDirectory();
                 }
 
                 return applicationPath;
@@ -67,9 +59,7 @@ namespace LaunchBoxReShadeManager.Helpers
             {
                 if (string.IsNullOrWhiteSpace(pluginFolder))
                 {
-                    // trying moving the plugin folder back to the LB root because LB freaks out when it sees DLLs in the plug-in folder that are not plugins
-                    // pluginFolder = $"{ApplicationPath}\\Plugins\\LaunchBoxReShadeManager";
-                    pluginFolder = $"{ApplicationPath}\\LaunchBoxReShadeManager";
+                    pluginFolder = $"{ApplicationPath}\\ReShadeManager";
                 }
                 return pluginFolder;
             }
@@ -173,7 +163,7 @@ namespace LaunchBoxReShadeManager.Helpers
         {
             get
             {
-                return "pack://application:,,,/LaunchBoxReShadeManager;component/resources";
+                return "pack://application:,,,/ReShadeManager;component/resources";
             }
         }
 
