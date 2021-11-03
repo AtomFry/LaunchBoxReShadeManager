@@ -10,43 +10,46 @@ IMPORTANT - TheLaunchBoxReShadeManager folder must reside in the root of the Lau
 # Emulator settings
 These files are included in the plug-in ZIP file.  They include both the ReShade configuration and the default bezel for the emulator. This allows for a default configuration at the emulator level. The system will copy any files in a folder with the name of an emulator to the emulator directory if it exists at the following location:  
   
-..\LaunchBox\LaunchBoxReShadeManager\ReShade versions for emulators\\{EMULATOR}  
+..\LaunchBox\LaunchBoxReShadeManager\Emulators\\{EMULATOR}  
   
 Where {EMULATOR} is the safe name (more on "safe names" below) of the emulator. These emulator names must match the name of the emulator as it is setup in your LaunchBox instance. You can change the folder names in this path to match the naming of your emulator if you have an emulator named differently.  
   
 You can replace the default bezel for an emulator by replacing the Bezel.png file at the following path:  
-..\LaunchBox\LaunchBoxReShadeManager\ReShade versions for emulators\\{EMULATOR}\reshade-shaders\Textures\Bezel.png
+..\LaunchBox\LaunchBoxReShadeManager\Emulators\\{EMULATOR}\reshade-shaders\Textures\Bezel.png
 
 # Platform settings
 You can override ReShade settings and bezels at the platform level. The system will copy any files in a folder with the name of a platform to the emulator directory if it exists at the following location:
-..\LaunchBox\LaunchBoxReShadeManager\ReShade versions for platforms\\{PLATFORM}
+..\LaunchBox\LaunchBoxReShadeManager\Platforms\\{PLATFORM}
 
 Where {PLATFORM} is the safe name (more on "safe names" below) of the platform. These platform names must match the name of the platform as it is setup in your LaunchBox instance. You can set the folder names in this path to match the naming of your platform if you have a platform named differently.
 
 You can replace the bezel for a platform by replacing the Bezel.png file at the following path: 
-..\LaunchBox\LaunchBoxReShadeManager\ReShade versions for platforms\\{PLATFORM}\reshade-shaders\Textures\Bezel.png  
+..\LaunchBox\LaunchBoxReShadeManager\Platforms\\{PLATFORM}\reshade-shaders\Textures\Bezel.png  
   
 Example path for adding a default bezel for Nintendo Gamecube games:  
-..\LaunchBox\LaunchBoxReShadeManager\ReShade versions for platforms\Nintendo Gamecube\reshade-shaders\Textures\Bezel.png
+..\LaunchBox\LaunchBoxReShadeManager\Platforms\Nintendo Gamecube\reshade-shaders\Textures\Bezel.png
 
 # Game settings
 You can override ReShade settings and bezels at the game level.  The system will copy any files in a folder with the name of a game to the emulator directory if it exists at the following location:  
 
-..\LaunchBox\LaunchBoxReShadeManager\ReShade versions for games\\{PLATFORM}\\{GAME}  
+..\LaunchBox\LaunchBoxReShadeManager\Games\\{PLATFORM}\\{GAME}  
   
 Where {PLATFORM} is the safe name (more on "safe names" below) of the platform  
 Where {GAME} is the safe name (more on "safe names" below) of the game  
 
 You can replace the bezel for a game by replacing the Bezel.png file at the following path:  
-..\LaunchBox\LaunchBoxReShadeManager\ReShade versions for games\\{PLATFORM}\\{GAME}\\reshade-shaders\Textures\Bezel.png  
+..\LaunchBox\LaunchBoxReShadeManager\Games\\{PLATFORM}\\{GAME}\\reshade-shaders\Textures\Bezel.png  
   
 Example path for adding a bezel override for the Nintendo Gamecube game titled Alien Hominid  
-..\LaunchBox\LaunchBoxReShadeManager\ReShade versions for games\Nintendo Gamecube\Alien Hominid\reshade-shaders\Textures\Bezel.png  
+..\LaunchBox\LaunchBoxReShadeManager\Games\Nintendo Gamecube\Alien Hominid\reshade-shaders\Textures\Bezel.png  
 
 # Notes on safe names
 Some characters (like /:?*?"<>|) are invalid in file and folder names. If these files exist in the emulator, platform, or game name, those characters must be replaced by an underscore. For example, to create a game specific override for the game "Castlevania: The Adventure ReBirth", create a folder in the following location and add your ReShade files:  
 ..\LaunchBox\LaunchBoxReShadeManager\ReShade versions for games\Nintendo Wii\Castlevania_ The Adventure ReBirth
 
-# Special thanks
-nohero  
-ReShade developers (to be identified)
+# Credits
+nohero  (Product owner, subject matter expert, quality assurance)  
+Crosire (ReShade developer)  
+CeeJay (ReShade developer)  
+Houb (for custom version of ReShade)  
+Ducon (for custom version of ReShade)  
