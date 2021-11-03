@@ -39,7 +39,7 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="xcopy &quot;$(TargetDir)\$(TargetFileName)&quot; &quot;C:\Users\Adam\Documents\LaunchBox\Plugins&quot; /K /D /H /Y" />
+    <Exec Command="RMDIR &quot;$(TargetDir)$(ProjectName)\&quot; /Q /S&#xD;&#xA;MKDIR &quot;$(TargetDir)$(ProjectName)\&quot;&#xD;&#xA;xcopy &quot;$(ProjectDir)$(ProjectName)\&quot; &quot;$(TargetDir)$(ProjectName)&quot; /K /D /H /Y /E&#xD;&#xA;xcopy &quot;$(TargetDir)$(TargetFileName)&quot; &quot;$(TargetDir)$(ProjectName)\LaunchBox\Plugins&quot; /K /D /H /Y&#xD;&#xA;xcopy &quot;$(TargetDir)$(TargetFileName)&quot; &quot;C:\Users\Adam\Documents\LaunchBox\Plugins&quot; /K /D /H /Y&#xD;&#xA;xcopy &quot;$(TargetDir)$(ProjectName)\LaunchBox\&quot; &quot;C:\Users\Adam\Documents\LaunchBox\&quot; /K /D /H /Y /E" />
   </Target>
 
 </Project>

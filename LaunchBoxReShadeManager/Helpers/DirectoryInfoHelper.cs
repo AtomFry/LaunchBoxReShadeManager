@@ -95,7 +95,7 @@ namespace LaunchBoxReShadeManager.Helpers
             {
                 if(string.IsNullOrWhiteSpace(emulatorsFolder))
                 {
-                    emulatorsFolder = $"{PluginFolder}\\ReShade versions for emulators";
+                    emulatorsFolder = $"{PluginFolder}\\Emulators";
                 }
                 return emulatorsFolder;
             }
@@ -108,7 +108,7 @@ namespace LaunchBoxReShadeManager.Helpers
             {
                 if (string.IsNullOrWhiteSpace(platformsFolder))
                 {
-                    platformsFolder = $"{PluginFolder}\\ReShade versions for platforms";
+                    platformsFolder = $"{PluginFolder}\\Platforms";
                 }
                 return platformsFolder;
             }
@@ -121,7 +121,7 @@ namespace LaunchBoxReShadeManager.Helpers
             {
                 if (string.IsNullOrWhiteSpace(gamesFolder))
                 {
-                    gamesFolder = $"{PluginFolder}\\ReShade versions for games";
+                    gamesFolder = $"{PluginFolder}\\Games";
                 }
                 return gamesFolder;
             }
