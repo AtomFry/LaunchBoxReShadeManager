@@ -19,41 +19,75 @@ namespace LaunchBoxReShadeManager.Plugins
         {
             try
             {
-                // resolve path to emulator - we need to copy files here - just use emulator.ApplicationPath
-                if (string.IsNullOrWhiteSpace(emulator?.ApplicationPath))
+                string emulatorApplicationFolder = string.Empty;
+                string gameApplicationFolder = string.Empty;
+                string destinationFolder = string.Empty;
+
+                // resolve emulator's parent folder
+                if (!string.IsNullOrWhiteSpace(emulator?.ApplicationPath))
                 {
-                    LogHelper.Log($"ReShade manager skipped for game ({game.Title}).  Emulator application path is null.");
-                    return;
+                    DirectoryInfo emulatorDirectoryInfo = Directory.GetParent(emulator.ApplicationPath);
+                    emulatorApplicationFolder = emulatorDirectoryInfo.FullName;
+                    
+                    if(Directory.Exists(emulatorApplicationFolder))
+                    {
+                        destinationFolder = emulatorApplicationFolder;
+                    }
                 }
 
-                if (!File.Exists(emulator?.ApplicationPath))
+                // resolve game's parent folder
+                if(string.IsNullOrWhiteSpace(destinationFolder))
                 {
-                    LogHelper.Log($"ReShade manager skipped for game ({game.Title}).  Emulator application does not exist.");
-                    return;
+                    if (!string.IsNullOrWhiteSpace(game?.ApplicationPath))
+                    {
+                        DirectoryInfo gameDirectoryInfo = Directory.GetParent(game.ApplicationPath);
+                        gameApplicationFolder = gameDirectoryInfo.FullName;
+
+                        if (Directory.Exists(gameApplicationFolder))
+                        {
+                            destinationFolder = gameApplicationFolder;
+                        }
+                    }
                 }
 
-                DirectoryInfo emulatorDirectoryInfo = Directory.GetParent(emulator.ApplicationPath);
-                string emulatorApplicationFolder = emulatorDirectoryInfo.FullName;
-                if (!Directory.Exists(emulatorApplicationFolder))
+                if (!Directory.Exists(destinationFolder))
                 {
-                    LogHelper.Log($"ReShade manager skipped for game ({game.Title}).  Emulator path does not exist.");
+                    LogHelper.Log($"ReShade manager skipped for game ({game.Title}).  No emulator or game destination path was found.");
                     return;
                 }
 
                 // get the path to emulator specific ReShade folder 
-                string safeEmulatorName = GetSafeWindowsName(emulator?.Title);
-                string emulatorReshadePath = Path.Combine(DirectoryInfoHelper.Instance.EmulatorsFolder, safeEmulatorName);
-                FileCopyHelper.DirectoryCopy(emulatorReshadePath, emulatorApplicationFolder, true);
+                string safeEmulatorName = GetSafeWindowsName(emulator?.Title);                
+                if (!string.IsNullOrWhiteSpace(safeEmulatorName))
+                {
+                    string emulatorReshadePath = Path.Combine(DirectoryInfoHelper.Instance.EmulatorsFolder, safeEmulatorName);                    
+                    if (Directory.Exists(emulatorReshadePath))
+                    {
+                        FileCopyHelper.DirectoryCopy(emulatorReshadePath, destinationFolder, true);
+                    }
+                }
 
                 // get the path to platform specific ReShade folder 
-                string safePlatformName = GetSafeWindowsName(game?.Platform);
-                string platformReshadePath = Path.Combine(DirectoryInfoHelper.Instance.PlatformsFolder, safePlatformName);
-                FileCopyHelper.DirectoryCopy(platformReshadePath, emulatorApplicationFolder, true);
+                string safePlatformName = GetSafeWindowsName(game?.Platform);                
+                if (!string.IsNullOrWhiteSpace(safePlatformName))
+                {
+                    string platformReshadePath = Path.Combine(DirectoryInfoHelper.Instance.PlatformsFolder, safePlatformName);                    
+                    if (Directory.Exists(platformReshadePath))
+                    {
+                        FileCopyHelper.DirectoryCopy(platformReshadePath, destinationFolder, true);
+                    }
+                }
 
                 // get the path to game specific ReShade folder 
-                string safeGameName = GetSafeWindowsName(game?.Title);
-                string gameReshadePath = Path.Combine(DirectoryInfoHelper.Instance.GamesFolder, safePlatformName, safeGameName);
-                FileCopyHelper.DirectoryCopy(gameReshadePath, emulatorApplicationFolder, true);
+                string safeGameName = GetSafeWindowsName(game?.Title);                
+                if (!string.IsNullOrWhiteSpace(safeGameName))
+                {
+                    string gameReshadePath = Path.Combine(DirectoryInfoHelper.Instance.GamesFolder, safePlatformName, safeGameName);                    
+                    if (Directory.Exists(gameReshadePath))
+                    {
+                        FileCopyHelper.DirectoryCopy(gameReshadePath, destinationFolder, true);
+                    }
+                }
             }
             catch(Exception ex)
             {
